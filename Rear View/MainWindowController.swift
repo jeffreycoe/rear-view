@@ -13,7 +13,8 @@ class MainWindowController: NSWindowController {
     
         mainWindow.movableByWindowBackground = true
         mainWindow.makeKeyAndOrderFront(nil)
-        mainWindow.level = Int(CGWindowLevelForKey(CGWindowLevelKey.MaximumWindowLevelKey))        
+        mainWindow.level = Int(CGWindowLevelForKey(CGWindowLevelKey.MaximumWindowLevelKey))
+        
     }
     
 }

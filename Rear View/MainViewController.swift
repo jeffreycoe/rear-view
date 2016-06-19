@@ -43,6 +43,9 @@ class MainViewController: NSViewController {
             preview!.needsDisplayOnBoundsChange = true
             preview!.bounds = self.view.bounds
             preview!.position = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds))
+            preview!.cornerRadius = 5
+            preview!.borderWidth = 2
+            preview!.borderColor = NSColor.redColor().CGColor
             self.view.layer?.autoresizingMask = [CAAutoresizingMask.LayerHeightSizable, CAAutoresizingMask.LayerWidthSizable]
             self.view.layer?.frame = self.view.layer!.bounds
             self.view.layer?.addSublayer(preview!)

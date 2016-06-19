@@ -4,6 +4,7 @@
 //
 
 import Cocoa
+import AVFoundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -14,9 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         if(config.getDefaultCameraDeviceID().isEmpty) {
             let videoManager = VideoManager.init()
-            let devices = videoManager.getVideoDevices()
             
-            config.setDefaultCameraDeviceID(devices![0].uniqueID)
+            if let devices = videoManager.getVideoDevices() as! [AVCaptureDevice]? {
+                config.setDefaultCameraDeviceID(devices[0].uniqueID)
+            }
         }
         
         // Really shouldn't do this ever
